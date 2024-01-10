@@ -1,9 +1,9 @@
 # iocage-plugin-piwigo
 
-This is iocage plugin to create Piwigo, an open source photo gallery software for the web. Designed for organisations, teams and individuals.
+This is iocage plugin to create Piwigo 14.x, an open source photo gallery software for the web. Designed for organisations, teams and individuals.
 More details at http://piwigo.org
 
-*I have tested this plugin couple of times on my TrueNAS 13 U2 as a **12.2-RELEASE** and **11.4-RELEASE**, all seems to work well.*
+*I have tested this plugin couple of times on my TrueNAS 13 U5 as a **13.1-RELEASE**, all seems to work well.*
 
 ![Piwigo Installation Successful](https://i.imgur.com/p53XnmOl.png)
 
