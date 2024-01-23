@@ -58,7 +58,7 @@ Note: This will take some time
 ```
 pkg update && pkg upgrade -y
 
-pkg install php83 php83-session php83-mysqli nginx mariadb105-server ImageMagick7-nox11 git php83-exif php83-filter php83-gd php83-mbstring php83-zip php83-zlib php83-pecl-json_post finfo php83-fileinfo
+pkg install php73 php73-session php73-mysqli nginx mariadb105-server ImageMagick7-nox11 git php73-exif php73-filter php73-gd php73-mbstring php73-zip php73-zlib php73-pecl-json_post finfo php73-fileinfo
 ```
 Than restart iocage and log in to your gallery. I had an option to upgrade Piwigo to 14.1.0 ;)
 
