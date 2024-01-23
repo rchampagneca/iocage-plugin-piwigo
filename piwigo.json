@@ -11,7 +11,7 @@
     "pkgs": [
         "ImageMagick7-nox11",
         "git",
-        "nginx",
+        "caddy",
         "mariadb105-server",
         "php83",
         "php83-exif",
