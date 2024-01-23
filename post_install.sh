@@ -7,7 +7,8 @@ sysrc -f /etc/rc.conf mysql_enable="YES"
 sysrc -f /etc/rc.conf php_fpm_enable="YES"
 
 # Create Caddyfile
-cat <<__EOF__ >/root/usr/local/www/Caddyfile
+mkdir /usr/local/www
+cat <<__EOF__ >/usr/local/www/Caddyfile
 :80 {
 	encode gzip
 
@@ -46,7 +47,6 @@ sed -i '' 's/.*;date.timezone =.*/date.timezone = "Europe\/London"/' /usr/local/
 sed -i '' 's/.*;extension = mysqli.*/extension = mysqli/' /usr/local/etc/php.ini
 
 # Create a configuration directory to make managing individual server blocks easier
-mkdir /usr/local/etc/nginx/conf.d
 mkdir /usr/local/etc/php-fpm.d
 # Editing WWW config file - www.conf
 grep -qxF 'request_terminate_timeout = 300' /usr/local/etc/php-fpm.d/www.conf || echo 'request_terminate_timeout = 300' >> /usr/local/etc/php-fpm.d/www.conf
@@ -110,9 +110,9 @@ chown -R piwigo:www /usr/local/www/Piwigo
 
 #restart the services to make sure we have pick up the new permission
 service php-fpm restart 2>/dev/null
-#nginx restarts to fast while php is not fully started yet
+#caddy restarts to fast while php is not fully started yet
 sleep 5
-service nginx restart 2>/dev/null
+service caddy start 2>/dev/null
 
 # Add plugin detals to info file available in TrueNAS Plugin Additional Info
 # Finished!

@@ -39,29 +39,6 @@ Enable this extension for mysqli in PHP.ini
     extension=mysqli
 ```
 
-<h6>Nginx
-
-```
-    proxy_connect_timeout 600s
-    proxy_send_timeout 600s
-    proxy_read_timeout 600s
-    fastcgi_send_timeout 600s
-    fastcgi_read_timeout 600s
-
-    pm.max_children = 35
-    pm.start_servers = 15
-    pm.min_spare_servers = 15
-    pm.max_spare_servers = 20
-
-    request_terminate_timeout = 300
-```
-
-<h2> <h2>Gallery View
-
-![Piwigo Gallery View - Theme Modus](https://i.imgur.com/OfVd8fUl.jpg)
-
-![Piwigo Dashboard View](https://i.imgur.com/hPlxgwbl.jpg)
-
 ## Update... 9/1/2024
 
 I successfully updated my iocage Release 12.2 to 13.1, this is my procedure:
@@ -85,4 +62,3 @@ pkg install php83 php83-session php83-mysqli nginx mariadb105-server ImageMagick
 ```
 Than restart iocage and log in to your gallery. I had an option to upgrade Piwigo to 14.1.0 ;)
 
-![Piwigo Maintenance View](https://i.imgur.com/CaKbBkHl.png)

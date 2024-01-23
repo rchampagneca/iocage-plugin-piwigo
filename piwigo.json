@@ -9,7 +9,6 @@
         "dhcp": 1
     },
     "pkgs": [
-        "ImageMagick7-nox11",
         "git",
         "nano",
         "caddy",
