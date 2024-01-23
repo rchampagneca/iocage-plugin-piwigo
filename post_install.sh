@@ -1,11 +1,30 @@
 #!/bin/sh
 
 # Enable the service
-sysrc -f /etc/rc.conf nginx_enable="YES"
+sysrc -f /etc/rc.conf caddy_enable=YES
+sysrc -f /etc/rc.conf caddy_config=/usr/local/www/Caddyfile
 sysrc -f /etc/rc.conf mysql_enable="YES"
 sysrc -f /etc/rc.conf php_fpm_enable="YES"
+
+# Create Caddyfile
+cat <<__EOF__ >/root/usr/local/www/Caddyfile
+:80 {
+	encode gzip
+
+	log {
+		output file /var/log/piwigo_access.log
+	}
+
+	root * /usr/local/www/Piwigo
+	file_server
+
+	php_fastcgi 127.0.0.1:9000
+
+}
+__EOF__
+
 # Start the service
-service nginx start 2>/dev/null
+service caddy start 2>/dev/null
 service php-fpm start 2>/dev/null
 service mysql-server start 2>/dev/null
 
@@ -96,6 +115,8 @@ sleep 5
 service nginx restart 2>/dev/null
 
 # Add plugin detals to info file available in TrueNAS Plugin Additional Info
+# Finished!
+echo "Installation complete!"
 echo "Host: 127.0.0.1" > /root/PLUGIN_INFO
 echo "Database User: $USER" >> /root/PLUGIN_INFO
 echo "Database Password: $PASS" >> /root/PLUGIN_INFO

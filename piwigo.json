@@ -11,6 +11,7 @@
     "pkgs": [
         "ImageMagick7-nox11",
         "git",
+        "nano",
         "caddy",
         "mariadb105-server",
         "php83",

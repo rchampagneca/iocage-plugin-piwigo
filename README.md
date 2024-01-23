@@ -1,11 +1,10 @@
 # iocage-plugin-piwigo
 
-This is iocage plugin to create Piwigo 14.x, an open source photo gallery software for the web. Designed for organisations, teams and individuals.
-More details at http://piwigo.org
+Script to create a TrueNAS jail and install [Piwigo](http://piwigo.org) photo management software. 
 
-*I have tested this plugin couple of times on my TrueNAS 13 U5 as a **13.1-RELEASE**, all seems to work well.*
+*I have tested this plugin a couple of times on my TrueNAS 13 U6 as a **13.2-RELEASE**, all seems to work well.*
 
-![Piwigo Installation Successful](https://i.imgur.com/p53XnmOl.png)
+![Piwigo Installation Successful](https://piwigo.org/plugins/piwigo-piwigodotorg//images/home/responsive-screens.png)
 
 Tip 1. Please remember to read info in **TrueNAS / Plugins / Piwigo / POST INSTALL NOTES** - to access info with DB user and DB password.
 Piwigo first installation page will set Host: as localhost, usually this needs to be changed to 127.0.0.1
@@ -15,12 +14,15 @@ Tip 2. Please set your own date/time location in PHP.INI, as for this installati
 
 To install Piwigo plugin manually from the internet:
 
-> iocage fetch -P piwigo -g https://github.com/AfroUSApl/iocage-plugin-piwigo ip4_addr="interface|IPaddress"
+> iocage fetch -P piwigo -g https://github.com/rchampagneca/iocage-plugin-piwigo -r 13.2-RELEASE ip4_addr="interface|IPaddress"
 
 where *interface* is the name of the active network interface and *IP address* is the desired IP address for the plugin. For example, ip4_addr="igb0|192.168.0.91"
 
+## Caddy
 
-## Some of the post installation settings I have tuned for Piwigo:
+This script uses the Caddy web server, which supports automatic HTTPS, reverse proxying, and many other powerful features. It is configured using a Caddyfile, which is stored at /usr/local/www/Caddyfile in your jail, and under /apps/piwigo/ on your main data pool. You can edit it as desired to enable these or other features. For further information, see the [Caddy docs](https://caddyserver.com/docs/caddyfile).
+
+## Post installation settings
 <h6> PHP
 
 ```
