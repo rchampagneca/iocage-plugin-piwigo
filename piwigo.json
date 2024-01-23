@@ -1,7 +1,7 @@
 {
     "name": "Piwigo14",
     "plugin_schema": "2",
-    "release": "13.1-RELEASE",
+    "release": "13.2-RELEASE",
     "artifact": "https://github.com/AfroUSApl/iocage-plugin-piwigo.git",
     "official": false,
     "properties": {
